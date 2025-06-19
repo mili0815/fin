@@ -151,15 +151,13 @@ const PolicyLinks = styled.div`
   font-size: 14px;
 `;
 
-const LinkButton = styled.button`
-  background: none;
-  border: none;
+const LinkStyled = styled.a`
   color: #4a90e2;
+  text-decoration: none;
+  font-size: 14px;
   cursor: pointer;
-  padding: 0;
-  font-size: inherit;
 
-  &:hoever {
+  &:hover {
     text-decoration: underline;
   }
 `;
@@ -292,9 +290,9 @@ export default function SettingsPage() {
           </ToggleRow>
           <InfoText>서비스 정보 | v1.0</InfoText>
           <PolicyLinks>
-            <LinkButton>개인정보 처리방침</LinkButton>
-            <span>|</span>
-            <LinkButton>고객센터</LinkButton>
+            <LinkStyled href="/privacy-policy.html" target="_blank">
+              개인정보 처리방침
+            </LinkStyled>
           </PolicyLinks>
         </Card>
       </Content>
