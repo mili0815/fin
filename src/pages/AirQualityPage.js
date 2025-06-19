@@ -176,10 +176,13 @@ const AirQualityPage = () => {
       }
     });
   }, []);
-  const gradeText = convertGrade(data?.khaiGrade);
-  const tipText =
-    airQualityTips[parseInt(data?.khaiGrade, 10)] || "데이터가 부족합니다.";
+  const isValidGrade =
+    data?.khaiGrade && data.khaiGrade !== "_" && data.khaiGrade !== "통신장애";
 
+  const gradeText = isValidGrade ? convertGrade(data.khaiGrade) : "정보없음";
+  const tipText = isValidGrade
+    ? airQualityTips[parseInt(data.khaiGrade, 10)]
+    : "현재 공기질 정보를 불러올 수 없습니다. 잠시 후 다시 시도해주세요.";
   return (
     <Container>
       <Content>
